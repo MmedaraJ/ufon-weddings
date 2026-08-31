@@ -35,6 +35,21 @@ process hosts both the API and the site.
 | `PAYSTACK_SECRET_KEY` | Paystack secret. **Unset = mock payment mode**, the checkout completes without charging so the flow can be tested. |
 | `CLIENT_URL`          | Public site URL used for the Paystack callback (default http://localhost:5173) |
 
+## Turning your photos into product images
+
+Drop a raw photo anywhere (e.g. `raw-photos/`), then:
+
+```bash
+cd tools && npm install   # once
+node product-images.mjs ../raw-photos/bouquet.jpg everlasting-silk-bouquet --focus 10,5,60,55 --detail 25,15,30,30
+```
+
+`--focus` crops the product out of the photo (x,y,width,height as percentages of
+the image); `--detail` adds a close-up slide. It writes `main.jpg`, `square.jpg`,
+`detail.jpg` and `thumb.jpg` into `client/public/images/products/<slug>/`, sized
+and compressed for the web. Point the product's `images` array in
+`server/src/data/products.ts` at those paths.
+
 ## Where things live
 
 - Products, categories, personalization settings: `server/src/data/products.ts`, `server/src/data/categories.ts`

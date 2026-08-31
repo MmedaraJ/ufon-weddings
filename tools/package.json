@@ -1,0 +1,10 @@
+{
+  "name": "ufon-weddings-tools",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Image tooling: turn raw photos into web-ready product image sets",
+  "dependencies": {
+    "sharp": "^0.33.5"
+  }
+}

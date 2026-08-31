@@ -149,9 +149,19 @@ export const PRODUCTS: Product[] = [
     'Hand-set crystal teardrops that catch every camera flash.'),
 
   // Bouquets & Flowers
+  p('bouquets-flowers', 'Red Gerbera Bridal Bouquet', 48000, 8,
+    'Bold red gerberas with trailing star-of-Bethlehem sprays, hand-tied in a white satin wrap.',
+    {
+      featured: true,
+      images: [
+        '/images/products/red-gerbera-bridal-bouquet/main.jpg',
+        '/images/products/red-gerbera-bridal-bouquet/square.jpg',
+        '/images/products/red-gerbera-bridal-bouquet/detail.jpg',
+      ],
+    }),
   p('bouquets-flowers', 'Everlasting Silk Bouquet', 45000, 8,
     'A silk-and-dried-flower bridal bouquet you keep forever.',
-    { colors: [BLUSH, BURNT_ORANGE, IVORY], featured: true }),
+    { colors: [BLUSH, BURNT_ORANGE, IVORY] }),
   p('bouquets-flowers', 'Bridesmaid Posy (Set of 4)', 60000, 9,
     'Four matching mini posies tied with satin ribbon.',
     { colors: [BLUSH, BURNT_ORANGE, EMERALD] }),

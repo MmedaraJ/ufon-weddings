@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#EFE9DD"/>
+  <rect x="14" y="14" width="772" height="972" fill="none" stroke="#DACFB4" stroke-width="2"/>
+  <ellipse cx="400" cy="336" rx="46.800000000000004" ry="104" fill="#DACFB4" opacity="0.5" transform="rotate(0 400 440)"/><ellipse cx="400" cy="336" rx="46.800000000000004" ry="104" fill="#DACFB4" opacity="0.5" transform="rotate(60 400 440)"/><ellipse cx="400" cy="336" rx="46.800000000000004" ry="104" fill="#DACFB4" opacity="0.5" transform="rotate(120 400 440)"/><ellipse cx="400" cy="336" rx="46.800000000000004" ry="104" fill="#DACFB4" opacity="0.5" transform="rotate(180 400 440)"/><ellipse cx="400" cy="336" rx="46.800000000000004" ry="104" fill="#DACFB4" opacity="0.5" transform="rotate(240 400 440)"/><ellipse cx="400" cy="336" rx="46.800000000000004" ry="104" fill="#DACFB4" opacity="0.5" transform="rotate(300 400 440)"/><circle cx="400" cy="440" r="36.4" fill="#C9A227" opacity="0.7"/>
+  <text x="400" y="830" text-anchor="middle" font-family="Georgia, serif" font-size="42" fill="#5C4632">Ufon Weddings</text>
+  <text x="400" y="910" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#8A7357" letter-spacing="2">PHOTO COMING SOON</text>
+</svg>

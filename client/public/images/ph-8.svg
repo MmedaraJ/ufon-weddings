@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#F0EAE1"/>
+  <rect x="14" y="14" width="772" height="972" fill="none" stroke="#D9CDBB" stroke-width="2"/>
+  
+  <circle cx="355.2" cy="440" r="128" fill="none" stroke="#C9A227" stroke-width="6" opacity="0.55"/>
+  <circle cx="444.8" cy="440" r="128" fill="none" stroke="#C9A227" stroke-width="6" opacity="0.55"/>
+  <text x="400" y="830" text-anchor="middle" font-family="Georgia, serif" font-size="42" fill="#5C4632">Ufon Weddings</text>
+  <text x="400" y="910" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#8A7357" letter-spacing="2">PHOTO COMING SOON</text>
+</svg>

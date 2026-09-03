@@ -11,6 +11,8 @@ const WHITE: ProductColor = { name: 'White', hex: '#FFFFFF' };
 const CHAMPAGNE: ProductColor = { name: 'Champagne', hex: '#E8D6B3' };
 const BLUSH: ProductColor = { name: 'Blush', hex: '#EEC9C5' };
 const BURNT_ORANGE: ProductColor = { name: 'Burnt Orange', hex: '#C14B23' };
+const SILVER: ProductColor = { name: 'Silver', hex: '#C9CDD4' };
+const OFF_WHITE: ProductColor = { name: 'Off-White', hex: '#F4EEE2' };
 const GOLD: ProductColor = { name: 'Gold', hex: '#C9A227' };
 const EMERALD: ProductColor = { name: 'Emerald', hex: '#1F6F50' };
 const NAVY: ProductColor = { name: 'Navy', hex: '#20304F' };
@@ -74,11 +76,24 @@ function p(
 
 export const PRODUCTS: Product[] = [
   // Wedding Dresses
-  p('wedding-dresses', 'Adiaha Ballgown', 450000, 30,
+  p('wedding-dresses', 'Ekemini Pearl Fish Gown', 520000, 30,
+    'A pearl-and-crystal beaded fish (mermaid) gown that hugs every curve, then blooms into a dramatic ruffled organza train.',
+    {
+      sizes: DRESS_SIZES,
+      featured: true,
+      images: [
+        '/images/products/ekemini-pearl-fish-gown/slide-1.jpg',
+        '/images/products/ekemini-pearl-fish-gown/slide-2.jpg',
+        '/images/products/ekemini-pearl-fish-gown/slide-3.jpg',
+        '/images/products/ekemini-pearl-fish-gown/slide-4.jpg',
+        '/images/products/ekemini-pearl-fish-gown/slide-5.jpg',
+      ],
+    }),
+  p('wedding-dresses', 'Adiaha Ball Gown', 450000, 30,
     'A full ivory ballgown with a hand-beaded bodice and sweeping tulle skirt.',
     { sizes: DRESS_SIZES, colors: [IVORY, WHITE, CHAMPAGNE], featured: true }),
-  p('wedding-dresses', 'Imaobong Mermaid Gown', 380000, 28,
-    'A fitted mermaid silhouette in crepe with corded lace through the train.',
+  p('wedding-dresses', 'Imaobong Fish Gown', 380000, 28,
+    'A fitted fish (mermaid) silhouette in crepe with corded lace through the train.',
     { sizes: DRESS_SIZES, colors: [IVORY, WHITE] }),
   p('wedding-dresses', 'Uduak A-Line Gown', 320000, 25,
     'A soft A-line gown with illusion sleeves and covered buttons to the hem.',
@@ -215,3 +230,20 @@ export const PRODUCTS: Product[] = [
     { colors: [IVORY, WHITE],
       personalization: EMBROIDERY('Embroidered couple names', 30, 4000) }),
 ];
+
+// Rules that apply to every wedding gown: the three colourways we sew, delivery
+// time that grows with quantity (each gown is a full round of handwork), and
+// the materials disclaimer shoppers must see before ordering.
+const GOWN_COLORS = [SILVER, OFF_WHITE, WHITE];
+for (const gown of PRODUCTS) {
+  if (gown.categorySlug === 'wedding-dresses') {
+    gown.colors = GOWN_COLORS;
+    gown.productionScalesWithQuantity = true;
+    gown.details = [
+      ...gown.details,
+      'Available in silver, off-white or white',
+      'Ordering more than one? Each gown adds its full make time to delivery',
+      'Please note: you may receive an item of similar but not exact material',
+    ];
+  }
+}

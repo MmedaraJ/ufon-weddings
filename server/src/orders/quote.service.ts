@@ -100,7 +100,7 @@ export class QuoteService {
       unitPrice: product.price,
       personalizationFee,
       lineTotal: (product.price + personalizationFee) * quantity,
-      productionDays: product.productionDays,
+      productionDays: product.productionDays * (product.productionScalesWithQuantity ? quantity : 1),
     };
   }
 }

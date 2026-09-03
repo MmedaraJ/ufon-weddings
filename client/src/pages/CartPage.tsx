@@ -16,7 +16,9 @@ export default function CartPage() {
     );
   }
 
-  const maxProduction = Math.max(...items.map((i) => i.productionDays));
+  const maxProduction = Math.max(
+    ...items.map((i) => i.productionDays * (i.productionScalesWithQuantity ? i.quantity : 1)),
+  );
 
   return (
     <div className="container">
@@ -37,7 +39,7 @@ export default function CartPage() {
                   <div className="cart-line-meta">
                     {item.size && <>Size: {item.size} · </>}
                     {item.color && <>Color: {item.color} · </>}
-                    Made in ~{item.productionDays} days
+                    Made in ~{item.productionDays * (item.productionScalesWithQuantity ? item.quantity : 1)} days
                   </div>
                   {item.personalizationText && (
                     <div className="cart-line-meta">

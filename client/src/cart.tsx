@@ -61,6 +61,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
           personalizationText: text,
           personalizationFee: text ? product.personalization?.fee ?? 0 : 0,
           productionDays: product.productionDays,
+          productionScalesWithQuantity: product.productionScalesWithQuantity,
         };
         setItems((prev) => {
           const key = cartKey(newItem);

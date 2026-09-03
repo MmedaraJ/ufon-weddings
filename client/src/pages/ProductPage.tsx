@@ -166,9 +166,15 @@ export default function ProductPage() {
           <div className="made-note">
             <span>🪡</span>
             <span>
-              <strong>Made for you in ~{product.productionDays} days</strong>, then shipped from our
-              studio in Uyo, Akwa Ibom. Add your event date at checkout and we'll confirm it arrives
-              before your big day.
+              <strong>
+                Made for you in ~
+                {product.productionDays * (product.productionScalesWithQuantity ? quantity : 1)} days
+              </strong>
+              {product.productionScalesWithQuantity && quantity > 1 && (
+                <> ({product.productionDays} days per piece)</>
+              )}
+              , then shipped from our studio in Uyo, Akwa Ibom. Add your event date at checkout and
+              we'll confirm it arrives before your big day.
             </span>
           </div>
 

@@ -35,7 +35,10 @@ export interface Product {
   description: string;
   details: string[];
   images: string[];
-  productionDays: number; // days to handcraft one order of this item
+  productionDays: number; // days to handcraft one of this item
+  // When true (e.g. wedding gowns), production time multiplies by quantity —
+  // each extra piece adds a full round of handwork.
+  productionScalesWithQuantity?: boolean;
   sizes?: string[];
   colors?: ProductColor[];
   personalization?: Personalization;

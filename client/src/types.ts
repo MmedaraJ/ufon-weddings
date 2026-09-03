@@ -31,6 +31,7 @@ export interface Product {
   details: string[];
   images: string[];
   productionDays: number;
+  productionScalesWithQuantity?: boolean;
   sizes?: string[];
   colors?: ProductColor[];
   personalization?: Personalization;
@@ -50,6 +51,7 @@ export interface CartItem {
   personalizationText?: string;
   personalizationFee: number;
   productionDays: number;
+  productionScalesWithQuantity?: boolean;
 }
 
 export interface StateLocations {

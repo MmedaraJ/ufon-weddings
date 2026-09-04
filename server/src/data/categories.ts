@@ -5,7 +5,7 @@ export const CATEGORIES: Category[] = [
     slug: 'wedding-dresses',
     name: 'Wedding Dresses',
     tagline: 'Handmade bridal gowns, sewn to your measurements',
-    image: '/images/cat-wedding-dresses.svg',
+    image: '/images/cat-wedding-dresses.jpg',
   },
   {
     slug: 'bridesmaid-dresses',

@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="900" viewBox="0 0 1100 900">
-  <rect width="1100" height="900" fill="#F6EDE3"/>
-  <rect x="14" y="14" width="1072" height="872" fill="none" stroke="#E9D5C0" stroke-width="2"/>
-  
-  <circle cx="499.6" cy="396" r="144" fill="none" stroke="#C9A227" stroke-width="6" opacity="0.55"/>
-  <circle cx="600.4" cy="396" r="144" fill="none" stroke="#C9A227" stroke-width="6" opacity="0.55"/>
-  <text x="550" y="747" text-anchor="middle" font-family="Georgia, serif" font-size="57" fill="#5C4632">Handcrafted in Akwa Ibom</text>
-  <text x="550" y="819" text-anchor="middle" font-family="Georgia, serif" font-size="33" fill="#8A7357" letter-spacing="2">UFON WEDDINGS</text>
-</svg>

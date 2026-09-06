@@ -22,12 +22,12 @@ export default function AboutPage() {
             cut, sew, bead and embroider by hand, working with each bride on her measurements, her
             colors and the small personal touches that make a piece hers.
           </p>
-          <h2>Why made-to-order matters</h2>
+          <h2>Why we talk before we sew</h2>
           <p>
-            Because your wedding is one day, and everything has to be right. When you order, we tell
-            you exactly how long your pieces take to make and when they will arrive — and if you
-            share your event date, we make sure everything is in your hands before it, with time to
-            spare.
+            Because your wedding is one day, and everything has to be right. The styles on this site
+            are starting points — you tell us what you love, and we agree the fabric, colours,
+            measurements, price and delivery together on WhatsApp before a single stitch. Share your
+            event date and we make sure everything is in your hands before it, with time to spare.
           </p>
           <h2>From Uyo to anywhere in Nigeria</h2>
           <p>
@@ -36,7 +36,7 @@ export default function AboutPage() {
             talk through your ideas.
           </p>
           <div className="hero-ctas" style={{ marginTop: 24 }}>
-            <Link to="/categories" className="btn btn-primary">Shop the collection</Link>
+            <Link to="/categories" className="btn btn-primary">Browse the collection</Link>
             <a className="btn btn-outline" href={whatsappLink('Hello! I read your story and I would love to chat about my wedding.')} target="_blank" rel="noreferrer">
               Say hello on WhatsApp
             </a>

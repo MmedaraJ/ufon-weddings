@@ -11,9 +11,8 @@ export interface ProductColor {
 }
 
 /**
- * Personalization config for a product.
- * - `available`: the product can physically take personalization (kept for
- *   products we can't offer yet, e.g. engraving before we own the machine).
+ * Personalization config for a product (e.g. embroidered names).
+ * - `available`: the product can physically take personalization.
  * - `enabled`: actually shown on the storefront. Flip to true to launch it.
  */
 export interface Personalization {
@@ -22,7 +21,6 @@ export interface Personalization {
   label: string;
   placeholder: string;
   maxLength: number;
-  fee: number; // NGN, added per item when personalization text is provided
 }
 
 export interface Product {
@@ -30,7 +28,9 @@ export interface Product {
   slug: string;
   name: string;
   categorySlug: string;
-  price: number; // NGN
+  // Prices are indicative ranges (NGN); the final quote is agreed on WhatsApp.
+  priceMin: number;
+  priceMax: number;
   shortDescription: string;
   description: string;
   details: string[];
@@ -52,78 +52,8 @@ export interface CityRate {
 
 export interface StateShipping {
   state: string;
-  fee: number; // NGN, default for the state
+  fee: number; // NGN, default for the state (kept for future use; not shown on site)
   days: number; // delivery days from Uyo, buffer already included
   cities: string[];
   cityOverrides?: Record<string, CityRate>;
-}
-
-export interface CartItemInput {
-  productId: string;
-  quantity: number;
-  size?: string;
-  color?: string;
-  personalizationText?: string;
-}
-
-export interface QuoteRequest {
-  items: CartItemInput[];
-  state?: string;
-  city?: string;
-  eventDate?: string; // ISO date
-}
-
-export interface QuotedItem {
-  productId: string;
-  name: string;
-  slug: string;
-  image: string;
-  quantity: number;
-  size?: string;
-  color?: string;
-  personalizationText?: string;
-  unitPrice: number;
-  personalizationFee: number;
-  lineTotal: number;
-  productionDays: number;
-}
-
-export type EventDateStatus = 'comfortable' | 'tight' | 'late';
-
-export interface Quote {
-  items: QuotedItem[];
-  subtotal: number;
-  shipping: { state: string; city: string; fee: number; days: number } | null;
-  total: number;
-  productionDays: number;
-  estimatedDeliveryDate: string | null; // ISO date, null until a location is chosen
-  eventDate: string | null;
-  eventDateStatus: EventDateStatus | null;
-}
-
-export interface CustomerInput {
-  fullName: string;
-  phone: string;
-  email: string;
-  address: string;
-  state: string;
-  city: string;
-  eventDate?: string;
-  orderNotes?: string;
-}
-
-export interface CreateOrderRequest {
-  items: CartItemInput[];
-  customer: CustomerInput;
-}
-
-export type OrderStatus = 'pending_payment' | 'paid' | 'failed';
-
-export interface Order {
-  reference: string;
-  createdAt: string;
-  status: OrderStatus;
-  mock: boolean;
-  customer: CustomerInput;
-  quote: Quote;
 }

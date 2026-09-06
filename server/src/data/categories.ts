@@ -1,76 +1,16 @@
 import { Category } from '../common/types';
 
+// Order here is the order on the site. Slugs match the folders in photos/.
 export const CATEGORIES: Category[] = [
-  {
-    slug: 'wedding-dresses',
-    name: 'Wedding Dresses',
-    tagline: 'Handmade bridal gowns, sewn to your measurements',
-    image: '/images/cat-wedding-dresses.jpg',
-  },
-  {
-    slug: 'bridesmaid-dresses',
-    name: 'Bridesmaid Dresses',
-    tagline: 'Matching and mix-and-match sets for your girls',
-    image: '/images/cat-bridesmaid-dresses.svg',
-  },
-  {
-    slug: 'reception-dresses',
-    name: 'Reception & After-Party Dresses',
-    tagline: 'The second dress — made to dance in',
-    image: '/images/cat-reception-dresses.svg',
-  },
-  {
-    slug: 'traditional-attire',
-    name: 'Traditional Attire',
-    tagline: 'Aso-oke and traditional engagement looks',
-    image: '/images/cat-traditional-attire.svg',
-  },
-  {
-    slug: 'veils-trains',
-    name: 'Veils & Trains',
-    tagline: 'Cathedral to birdcage, edged and embroidered by hand',
-    image: '/images/cat-veils-trains.svg',
-  },
-  {
-    slug: 'headwear',
-    name: 'Headwear',
-    tagline: 'Tiaras, crowns, combs, fascinators and gele',
-    image: '/images/cat-headwear.svg',
-  },
-  {
-    slug: 'jewelry',
-    name: 'Bridal Jewelry',
-    tagline: 'Necklaces, earrings and full sets, strung by hand',
-    image: '/images/cat-jewelry.svg',
-  },
-  {
-    slug: 'bouquets-flowers',
-    name: 'Bouquets & Flowers',
-    tagline: 'Everlasting bouquets, posies and boutonnieres',
-    image: '/images/cat-bouquets-flowers.svg',
-  },
-  {
-    slug: 'bridal-shoes',
-    name: 'Bridal Shoes',
-    tagline: 'Embellished heels, flats and sandals',
-    image: '/images/cat-bridal-shoes.svg',
-  },
-  {
-    slug: 'robes',
-    name: 'Robes & Getting-Ready Wear',
-    tagline: 'Bride and bridesmaid robes for the morning of',
-    image: '/images/cat-robes.svg',
-  },
-  {
-    slug: 'accessories',
-    name: 'Accessories',
-    tagline: 'Gloves, sashes, garters and clutches',
-    image: '/images/cat-accessories.svg',
-  },
-  {
-    slug: 'little-bride',
-    name: 'Little Bride & Flower Girl',
-    tagline: 'Mini dresses, baskets and ring-bearer pillows',
-    image: '/images/cat-little-bride.svg',
-  },
+  { slug: 'wedding-gowns', name: 'Wedding Gowns', tagline: 'Ball gowns, fish gowns and A-lines, sewn to your measurements', image: '/images/cat-wedding-gowns.jpg' },
+  { slug: 'bridesmaid-dresses', name: 'Bridesmaid Dresses', tagline: 'Made in your wedding colours for the whole train', image: '/images/cat-bridesmaid-dresses.jpg' },
+  { slug: 'bridal-shower-robes', name: 'Bridal Shower Robes', tagline: 'Tulle, satin and feathered robes for the morning of', image: '/images/cat-bridal-shower-robes.jpg' },
+  { slug: 'flower-girl-dresses', name: 'Flower Girl Dresses', tagline: 'Little dresses to match the bride', image: '/images/cat-flower-girl-dresses.jpg' },
+  { slug: 'wedding-bouquets', name: 'Wedding Bouquets', tagline: 'Fresh-look silk, pearl and brooch bouquets you keep forever', image: '/images/cat-wedding-bouquets.jpg' },
+  { slug: 'wedding-veils', name: 'Wedding Veils', tagline: 'Cathedral to fingertip, edged in lace', image: '/images/cat-wedding-veils.jpg' },
+  { slug: 'wedding-fascinators', name: 'Wedding Fascinators', tagline: 'Hats and headpieces for brides, mums and guests', image: '/images/cat-wedding-fascinators.jpg' },
+  { slug: 'wedding-hair-pins', name: 'Wedding Hair Pins', tagline: 'Pearl, crystal and floral pins and combs', image: '/images/cat-wedding-hair-pins.jpg' },
+  { slug: 'wedding-fans', name: 'Wedding Hand Fans', tagline: 'Feather and aso-oke fans, personalized with your names', image: '/images/cat-wedding-fans.jpg' },
+  { slug: 'wedding-purses', name: 'Wedding Purses', tagline: 'Hand-beaded bags and pomanders for the big day', image: '/images/cat-wedding-purses.jpg' },
+  { slug: 'bridal-petticoats', name: 'Petticoats & Hoop Skirts', tagline: 'The underskirts that give your gown its shape', image: '/images/cat-bridal-petticoats.jpg' },
 ];

@@ -17,7 +17,6 @@ export interface Personalization {
   label: string;
   placeholder: string;
   maxLength: number;
-  fee: number;
 }
 
 export interface Product {
@@ -25,7 +24,8 @@ export interface Product {
   slug: string;
   name: string;
   categorySlug: string;
-  price: number;
+  priceMin: number;
+  priceMax: number;
   shortDescription: string;
   description: string;
   details: string[];
@@ -44,67 +44,19 @@ export interface CartItem {
   slug: string;
   name: string;
   image: string;
-  price: number;
+  priceMin: number;
+  priceMax: number;
   quantity: number;
   size?: string;
   color?: string;
   personalizationText?: string;
-  personalizationFee: number;
+  notes?: string;
   productionDays: number;
   productionScalesWithQuantity?: boolean;
-}
-
-export interface StateLocations {
-  state: string;
-  cities: string[];
 }
 
 export interface ShippingLocations {
   origin: string;
   safetyBufferDays: number;
-  states: StateLocations[];
-}
-
-export type EventDateStatus = 'comfortable' | 'tight' | 'late';
-
-export interface Quote {
-  items: {
-    productId: string;
-    name: string;
-    slug: string;
-    image: string;
-    quantity: number;
-    size?: string;
-    color?: string;
-    personalizationText?: string;
-    unitPrice: number;
-    personalizationFee: number;
-    lineTotal: number;
-    productionDays: number;
-  }[];
-  subtotal: number;
-  shipping: { state: string; city: string; fee: number; days: number } | null;
-  total: number;
-  productionDays: number;
-  estimatedDeliveryDate: string | null;
-  eventDate: string | null;
-  eventDateStatus: EventDateStatus | null;
-}
-
-export interface Order {
-  reference: string;
-  createdAt: string;
-  status: 'pending_payment' | 'paid' | 'failed';
-  mock: boolean;
-  customer: {
-    fullName: string;
-    phone: string;
-    email: string;
-    address: string;
-    state: string;
-    city: string;
-    eventDate?: string;
-    orderNotes?: string;
-  };
-  quote: Quote;
+  states: { state: string; days: number; cities: { city: string; days: number }[] }[];
 }

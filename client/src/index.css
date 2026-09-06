@@ -352,7 +352,7 @@ h1, h2, h3, h4 {
   border-radius: var(--radius);
   padding: 24px;
   position: sticky;
-  top: 92px;
+  top: 122px; /* header + announcement bar */
 }
 .summary-card h2 { font-size: 24px; }
 .summary-row { display: flex; justify-content: space-between; font-size: 15px; padding: 7px 0; color: var(--muted); }
@@ -482,7 +482,7 @@ h1, h2, h3, h4 {
   .summary-card { position: static; }
   .main-nav {
     position: absolute;
-    top: 72px;
+    top: 102px; /* header + announcement bar */
     left: 0;
     right: 0;
     background: var(--cream);
@@ -495,4 +495,47 @@ h1, h2, h3, h4 {
   .main-nav.open { display: flex; }
   .nav-toggle { display: block; }
   .form-grid { grid-template-columns: 1fr; }
+}
+
+/* Conversation-starter model */
+.announce {
+  background: var(--primary);
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+  padding: 7px 16px;
+}
+.btn-whatsapp { background: #25D366; color: #fff; }
+.btn-whatsapp:hover { background: #1DA851; color: #fff; }
+.price-note { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+.notes-input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: var(--sans);
+  font-size: 14.5px;
+  resize: vertical;
+  background: var(--paper);
+  color: var(--ink);
+}
+.notes-input:focus { outline: 2px solid var(--primary-soft); border-color: var(--primary); }
+.optional-tag { font-family: var(--sans); font-size: 13px; font-weight: 400; color: var(--muted); margin-left: 8px; }
+.how-it-works { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 22px; }
+.how-step { position: relative; padding: 22px 22px 22px 64px; background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius); }
+.how-step h3 { font-size: 20px; }
+.how-step p { margin: 0; color: var(--muted); font-size: 14.5px; }
+.how-num {
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

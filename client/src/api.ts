@@ -1,14 +1,10 @@
-import { Category, Order, Product, Quote, ShippingLocations } from './types';
+import { Category, Product, ShippingLocations } from './types';
 
-async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(`/api${path}`, {
-    headers: { 'Content-Type': 'application/json' },
-    ...init,
-  });
+async function request<T>(path: string): Promise<T> {
+  const res = await fetch(`/api${path}`);
   const body = await res.json().catch(() => null);
   if (!res.ok) {
-    const message = Array.isArray(body?.message) ? body.message.join(', ') : body?.message;
-    throw new Error(message || 'Something went wrong. Please try again.');
+    throw new Error(body?.message || 'Something went wrong. Please try again.');
   }
   return body as T;
 }
@@ -20,13 +16,4 @@ export const api = {
     request<Product[]>(`/products${opts?.featured ? '?featured=true' : ''}`),
   product: (slug: string) => request<Product>(`/products/${slug}`),
   shippingLocations: () => request<ShippingLocations>('/shipping/locations'),
-  quote: (payload: unknown) =>
-    request<Quote>('/orders/quote', { method: 'POST', body: JSON.stringify(payload) }),
-  createOrder: (payload: unknown) =>
-    request<{ reference: string; authorizationUrl: string; mock: boolean }>('/orders', {
-      method: 'POST',
-      body: JSON.stringify(payload),
-    }),
-  verifyOrder: (reference: string) =>
-    request<Order>(`/orders/verify?reference=${encodeURIComponent(reference)}`),
 };

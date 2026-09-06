@@ -3,14 +3,18 @@ import { SAFETY_BUFFER_DAYS, SHIPPING_ORIGIN, SHIPPING_RATES } from '../data/shi
 
 @Controller('shipping')
 export class ShippingController {
-  // States and cities for the checkout dropdowns. Fees/days stay behind the
-  // scenes; the client gets them through the quote endpoint.
+  // States, cities and delivery-day estimates for the order request page.
+  // Fees are agreed on WhatsApp, so they stay behind the scenes.
   @Get('locations')
   locations() {
     return {
       origin: SHIPPING_ORIGIN,
       safetyBufferDays: SAFETY_BUFFER_DAYS,
-      states: SHIPPING_RATES.map((r) => ({ state: r.state, cities: r.cities })),
+      states: SHIPPING_RATES.map((r) => ({
+        state: r.state,
+        days: r.days,
+        cities: r.cities.map((city) => ({ city, days: r.cityOverrides?.[city]?.days ?? r.days })),
+      })),
     };
   }
 }

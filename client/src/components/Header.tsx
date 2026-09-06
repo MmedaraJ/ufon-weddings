@@ -15,6 +15,9 @@ export default function Header() {
 
   return (
     <header className="site-header">
+      <div className="announce">
+        Every piece is handmade to order &amp; customizable — browse, add to cart, and we finalize the details with you on WhatsApp.
+      </div>
       <div className="container">
         <Link to="/" className="logo" onClick={() => setOpen(false)}>
           <span className="logo-mark">Ufon</span>

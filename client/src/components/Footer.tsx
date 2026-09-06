@@ -27,7 +27,7 @@ export default function Footer() {
               Chat on WhatsApp
             </a>
             <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a>
-            <p>Made-to-order · Nationwide delivery from Uyo</p>
+            <p>Orders are agreed on WhatsApp · Nationwide delivery from Uyo</p>
           </div>
         </div>
         <div className="footer-note">

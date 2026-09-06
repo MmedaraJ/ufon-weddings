@@ -2,10 +2,18 @@
 
 Handcrafted wedding accessories, made in Akwa Ibom, Nigeria.
 
+The site is a **conversation starter**: every product is a style the studio
+makes, shown with an indicative price range. Customers add pieces to a cart
+and send the whole thing as a formatted order request on WhatsApp, where the
+specifics, final price, delivery and payment are agreed. No payment is taken
+on the site.
+
 Monorepo:
 
-- `server/` — NestJS API (catalog, shipping rates, delivery estimates, orders, Paystack)
+- `server/` — NestJS API (categories, products, delivery-day estimates)
 - `client/` — React + Vite storefront
+- `tools/` — image tooling (raw photo → web-ready product image set)
+- `photos/` — raw product photos, organized by category / product
 
 ## Running locally
 
@@ -25,37 +33,25 @@ cd ../server && npm install && npm run build && npm run start:prod
 ```
 
 The server serves the built storefront from `client/dist` when it exists, so one
-process hosts both the API and the site.
+process hosts both the API and the site. `PORT` (default 4000) is the only
+environment variable.
 
-## Environment (server/.env)
+## Adding products
 
-| Variable              | Purpose                                             |
-| --------------------- | --------------------------------------------------- |
-| `PORT`                | API port (default 4000)                             |
-| `PAYSTACK_SECRET_KEY` | Paystack secret. **Unset = mock payment mode**, the checkout completes without charging so the flow can be tested. |
-| `CLIENT_URL`          | Public site URL used for the Paystack callback (default http://localhost:5173) |
-
-## Turning your photos into product images
-
-Drop a raw photo anywhere (e.g. `raw-photos/`), then:
-
-```bash
-cd tools && npm install   # once
-node product-images.mjs ../raw-photos/bouquet.jpg everlasting-silk-bouquet --focus 10,5,60,55 --detail 25,15,30,30
-```
-
-`--focus` crops the product out of the photo (x,y,width,height as percentages of
-the image); `--detail` adds a close-up slide. It writes `main.jpg`, `square.jpg`,
-`detail.jpg` and `thumb.jpg` into `client/public/images/products/<slug>/`, sized
-and compressed for the web. Point the product's `images` array in
-`server/src/data/products.ts` at those paths.
+1. Put photos in `photos/<category-slug>/`:
+   - one photo per product: `photos/<category>/<product-slug>.jpeg`
+   - several photos of one product: `photos/<category>/<product-slug>/01.jpeg`, `02.jpeg`, …
+2. Generate web images (`slide-N.jpg` / `main.jpg`, plus `square.jpg`, `thumb.jpg`)
+   into `client/public/images/products/<product-slug>/` — `tools/product-images.mjs`
+   does one photo at a time; see its header for usage.
+3. Add the product to `server/src/data/products.ts` (price range, make time,
+   sizes/colours) and, for a new category, `server/src/data/categories.ts`
+   plus a 5:4 tile at `client/public/images/cat-<category-slug>.jpg`.
+4. Rebuild the client.
 
 ## Where things live
 
-- Products, categories, personalization settings: `server/src/data/products.ts`, `server/src/data/categories.ts`
-- Shipping fees & delivery days per state/city (origin: Uyo, Akwa Ibom): `server/src/data/shipping.ts`
-- WhatsApp number: `client/src/config.ts`
+- WhatsApp number & brand details: `client/src/config.ts`
+- Order request message format: `client/src/pages/CartPage.tsx`
+- Delivery days per state/city (origin Uyo): `server/src/data/shipping.ts`
 - Brand colors: `client/src/index.css` (primary `#C14B23`)
-
-Orders are kept in memory for now — swap `OrdersService`'s Map for a database
-when moving beyond sample products.

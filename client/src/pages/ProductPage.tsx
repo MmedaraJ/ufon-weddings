@@ -90,14 +90,14 @@ export default function ProductPage() {
           <span className="pill pill-primary">Made to order · customizable</span>
           <h1 style={{ marginTop: 10 }}>{product.name}</h1>
           <div className="product-price">{nairaRange(product.priceMin, product.priceMax)}</div>
-          <div className="price-note">Indicative range — final quote agreed with you on WhatsApp</div>
+          <div className="price-note">Indicative range. Final quote agreed with you on WhatsApp</div>
           <p className="product-desc">{product.description}</p>
 
           {product.sizes && product.sizes.length > 0 && (
             <div className="option-block">
               <div className="option-label">
                 <span>Size</span>
-                <span className="hint">optional — we can take measurements later</span>
+                <span className="hint">optional, we can take measurements later</span>
               </div>
               <div className="chip-row">
                 {product.sizes.map((s) => (
@@ -113,7 +113,7 @@ export default function ProductPage() {
             <div className="option-block">
               <div className="option-label">
                 <span>Colour{color ? `: ${color}` : ''}</span>
-                <span className="hint">optional — other colours on request</span>
+                <span className="hint">optional, other colours on request</span>
               </div>
               <div className="swatch-row">
                 {product.colors.map((c) => (
@@ -145,7 +145,7 @@ export default function ProductPage() {
               />
               <div className={`char-count ${overLimit ? 'over' : ''}`}>
                 {personalization.length}/{pers.maxLength} characters
-                {overLimit && ' — too long'}
+                {overLimit && ', too long'}
               </div>
             </div>
           )}
@@ -160,7 +160,7 @@ export default function ProductPage() {
               rows={3}
               value={notes}
               onChange={(e) => setNotes(e.target.value.slice(0, NOTES_MAX))}
-              placeholder="Anything you'd like changed — neckline, fabric, colour, length, your event date…"
+              placeholder="Anything you'd like changed: neckline, fabric, colour, length, your event date…"
             />
           </div>
 
@@ -194,7 +194,7 @@ export default function ProductPage() {
             <span>
               <strong>Made for you in ~{makeDays} days</strong>
               {product.productionScalesWithQuantity && quantity > 1 && <> ({product.productionDays} days per piece)</>}
-              , then delivered from our studio in Uyo, Akwa Ibom. Share your event date and we'll
+              , then delivered from our studio in Eket, Akwa Ibom. Share your event date and we'll
               confirm it arrives in good time.
             </span>
           </div>

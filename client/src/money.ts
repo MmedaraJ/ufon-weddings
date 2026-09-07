@@ -10,7 +10,7 @@ export function naira(amount: number): string {
 
 // Prices on the site are indicative ranges; the final quote is agreed on WhatsApp.
 export function nairaRange(min: number, max: number): string {
-  return min === max ? naira(min) : `${naira(min)} – ${naira(max)}`;
+  return min === max ? naira(min) : `${naira(min)} - ${naira(max)}`;
 }
 
 export function formatDate(iso: string): string {

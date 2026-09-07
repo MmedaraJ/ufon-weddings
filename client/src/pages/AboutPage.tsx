@@ -13,8 +13,8 @@ export default function AboutPage() {
         <div className="about-copy">
           {/* TODO: replace with the founder's real story and photo */}
           <p>
-            Ufon Weddings began in a small studio in Uyo, Akwa Ibom, with one belief: the things you
-            wear and carry on your wedding day should be made for <em>you</em> — not pulled off a
+            Ufon Weddings began in a small studio in Eket, Akwa Ibom, with one belief: the things you
+            wear and carry on your wedding day should be made for <em>you</em>, not pulled off a
             shelf.
           </p>
           <p>
@@ -25,14 +25,14 @@ export default function AboutPage() {
           <h2>Why we talk before we sew</h2>
           <p>
             Because your wedding is one day, and everything has to be right. The styles on this site
-            are starting points — you tell us what you love, and we agree the fabric, colours,
+            are starting points: you tell us what you love, and we agree the fabric, colours,
             measurements, price and delivery together on WhatsApp before a single stitch. Share your
             event date and we make sure everything is in your hands before it, with time to spare.
           </p>
-          <h2>From Uyo to anywhere in Nigeria</h2>
+          <h2>From Eket to anywhere in Nigeria</h2>
           <p>
             We ship nationwide from Akwa Ibom, with delivery estimates for every state and city. And
-            you can always reach a real person on WhatsApp — for swatches, adjustments, or just to
+            you can always reach a real person on WhatsApp for swatches, adjustments, or just to
             talk through your ideas.
           </p>
           <div className="hero-ctas" style={{ marginTop: 24 }}>

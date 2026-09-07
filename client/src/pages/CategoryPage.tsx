@@ -32,7 +32,7 @@ export default function CategoryPage() {
           <Link to="/">Home</Link> / <Link to="/categories">Shop</Link> / {category.name}
         </div>
         <h1>{category.name}</h1>
-        <p>{category.tagline}. Handmade to order — chat with us for custom requests.</p>
+        <p>{category.tagline}. Handmade to order. Chat with us for custom requests.</p>
       </div>
       <div className="section" style={{ paddingTop: 28 }}>
         <div className="grid grid-products">

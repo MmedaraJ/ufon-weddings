@@ -1,9 +1,9 @@
 import { StateShipping } from '../common/types';
 
-// All orders ship from our studio in Uyo, Akwa Ibom.
+// All orders ship from our studio in Eket, Akwa Ibom.
 // `days` is a delivery estimate that ALREADY includes buffer time for Nigerian
-// logistics — do not promise faster than this. Fees are NGN.
-export const SHIPPING_ORIGIN = 'Uyo, Akwa Ibom, Nigeria';
+// logistics; do not promise faster than this. Fees are NGN.
+export const SHIPPING_ORIGIN = 'Eket, Akwa Ibom, Nigeria';
 
 // Extra safety margin added on top of production + shipping when we compare
 // against a customer's event date.
@@ -17,10 +17,10 @@ const s = (state: string, fee: number, days: number, cities: string[]): StateShi
 });
 
 export const SHIPPING_RATES: StateShipping[] = [
-  // Home state — cheapest and fastest
+  // Home state: cheapest and fastest
   {
     ...s('Akwa Ibom', 1500, 2, ['Uyo', 'Eket', 'Ikot Ekpene', 'Oron', 'Abak']),
-    cityOverrides: { Uyo: { fee: 1000, days: 1 } },
+    cityOverrides: { Eket: { fee: 1000, days: 1 } },
   },
 
   // Neighbouring states

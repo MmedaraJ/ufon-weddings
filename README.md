@@ -10,10 +10,10 @@ on the site.
 
 Monorepo:
 
-- `server/` — NestJS API (categories, products, delivery-day estimates)
-- `client/` — React + Vite storefront
-- `tools/` — image tooling (raw photo → web-ready product image set)
-- `photos/` — raw product photos, organized by category / product
+- `server/` : NestJS API (categories, products, delivery-day estimates)
+- `client/` : React + Vite storefront
+- `tools/` : image tooling (raw photo to web-ready product image set)
+- `photos/` : raw product photos, organized by category / product
 
 ## Running locally
 
@@ -42,7 +42,7 @@ environment variable.
    - one photo per product: `photos/<category>/<product-slug>.jpeg`
    - several photos of one product: `photos/<category>/<product-slug>/01.jpeg`, `02.jpeg`, …
 2. Generate web images (`slide-N.jpg` / `main.jpg`, plus `square.jpg`, `thumb.jpg`)
-   into `client/public/images/products/<product-slug>/` — `tools/product-images.mjs`
+   into `client/public/images/products/<product-slug>/` : `tools/product-images.mjs`
    does one photo at a time; see its header for usage.
 3. Add the product to `server/src/data/products.ts` (price range, make time,
    sizes/colours) and, for a new category, `server/src/data/categories.ts`
@@ -53,5 +53,5 @@ environment variable.
 
 - WhatsApp number & brand details: `client/src/config.ts`
 - Order request message format: `client/src/pages/CartPage.tsx`
-- Delivery days per state/city (origin Uyo): `server/src/data/shipping.ts`
+- Delivery days per state/city (origin Eket): `server/src/data/shipping.ts`
 - Brand colors: `client/src/index.css` (primary `#C14B23`)

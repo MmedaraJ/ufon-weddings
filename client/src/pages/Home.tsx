@@ -21,10 +21,10 @@ export default function Home() {
           <div>
             <div className="eyebrow">Handcrafted in Akwa Ibom, Nigeria</div>
             <h1>
-              All your wedding needs, <em>made by hand</em> — for you.
+              All your wedding needs, <em>made by hand</em>, for you.
             </h1>
             <p className="hero-sub">
-              Gowns, veils, bouquets, fans, purses and everything for your train — handmade to order
+              Gowns, veils, bouquets, fans, purses and everything for your train, handmade to order
               and customized to your wedding. Everything you see here is a starting point: pick what
               you love, then we perfect the details together on WhatsApp.
             </p>
@@ -59,7 +59,7 @@ export default function Home() {
             <div className="how-step">
               <span className="how-num">1</span>
               <h3>Browse the styles</h3>
-              <p>Every piece is a conversation starter — a style we love to make, with an indicative price range.</p>
+              <p>Every piece is a conversation starter: a style we love to make, with an indicative price range.</p>
             </div>
             <div className="how-step">
               <span className="how-num">2</span>
@@ -74,7 +74,7 @@ export default function Home() {
             <div className="how-step">
               <span className="how-num">4</span>
               <h3>Handmade &amp; delivered</h3>
-              <p>Your pieces are made by hand in Uyo and delivered anywhere in Nigeria — before your big day.</p>
+              <p>Your pieces are made by hand in Eket and delivered anywhere in Nigeria, before your big day.</p>
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@ export default function Home() {
           <div className="section-head">
             <div className="eyebrow">Shop by category</div>
             <h2>Everything for the bride &amp; her train</h2>
-            <p>Dresses, veils, bouquets, fans, purses and more — all made in our studio.</p>
+            <p>Dresses, veils, bouquets, fans, purses and more, all made in our studio.</p>
           </div>
           <div className="grid grid-cats">
             {categories.map((c) => (
@@ -127,7 +127,7 @@ export default function Home() {
             <div className="trust-item">
               <div className="trust-icon">🎀</div>
               <h3>Customized for you</h3>
-              <p>Your measurements, your colours, your changes — and personalization on select pieces.</p>
+              <p>Your measurements, your colours, your changes, and personalization on select pieces.</p>
             </div>
             <div className="trust-item">
               <div className="trust-icon">📦</div>
@@ -137,7 +137,7 @@ export default function Home() {
             <div className="trust-item">
               <div className="trust-icon">💬</div>
               <h3>A real person on WhatsApp</h3>
-              <p>Questions, swatches, adjustments, payment — everything is agreed in the chat.</p>
+              <p>Questions, swatches, adjustments, payment: everything is agreed in the chat.</p>
             </div>
           </div>
         </div>

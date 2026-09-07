@@ -9,8 +9,8 @@ export default function Footer() {
           <div>
             <h3>Ufon Weddings</h3>
             <p>
-              Handmade wedding accessories — handcrafted in {BRAND.origin} and customized for you
-              and your wedding. Every stitch, bead and hem is finished by hand in our Uyo studio,
+              Handmade wedding accessories, handcrafted in {BRAND.origin} and customized for you
+              and your wedding. Every stitch, bead and hem is finished by hand in our Eket studio,
               then shipped anywhere in Nigeria.
             </p>
           </div>
@@ -26,8 +26,7 @@ export default function Footer() {
             <a href={whatsappLink('Hello Ufon Weddings!')} target="_blank" rel="noreferrer">
               Chat on WhatsApp
             </a>
-            <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a>
-            <p>Orders are agreed on WhatsApp · Nationwide delivery from Uyo</p>
+            <p>Orders are agreed on WhatsApp · Nationwide delivery from Eket</p>
           </div>
         </div>
         <div className="footer-note">

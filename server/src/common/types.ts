@@ -36,7 +36,7 @@ export interface Product {
   details: string[];
   images: string[];
   productionDays: number; // days to handcraft one of this item
-  // When true (e.g. wedding gowns), production time multiplies by quantity —
+  // When true (e.g. wedding gowns), production time multiplies by quantity;
   // each extra piece adds a full round of handwork.
   productionScalesWithQuantity?: boolean;
   sizes?: string[];
@@ -53,7 +53,7 @@ export interface CityRate {
 export interface StateShipping {
   state: string;
   fee: number; // NGN, default for the state (kept for future use; not shown on site)
-  days: number; // delivery days from Uyo, buffer already included
+  days: number; // delivery days from Eket, buffer already included
   cities: string[];
   cityOverrides?: Record<string, CityRate>;
 }

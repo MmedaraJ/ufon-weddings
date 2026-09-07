@@ -19,6 +19,7 @@ export default function CartPage() {
   const { items, totalMin, totalMax, longestProductionDays, updateQuantity, removeItem, clear } = useCart();
   const [locations, setLocations] = useState<ShippingLocations | null>(null);
   const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
   const [state, setState] = useState('');
   const [city, setCity] = useState('');
   const [eventDate, setEventDate] = useState('');
@@ -45,11 +46,13 @@ export default function CartPage() {
     return (
       <div className="container empty-state">
         <h2>Your cart is empty</h2>
-        <p>Add the pieces you like — then send them to us on WhatsApp and we'll take it from there.</p>
+        <p>Add the pieces you like, then send them to us on WhatsApp and we'll take it from there.</p>
         <Link to="/categories" className="btn btn-primary">Browse the collection</Link>
       </div>
     );
   }
+
+  const ready = Boolean(name.trim() && phone.trim() && state && city);
 
   // The WhatsApp message IS the order request: everything the studio needs to
   // pick up the conversation, in one readable block.
@@ -71,13 +74,14 @@ export default function CartPage() {
     `*Estimated total:* ${nairaRange(totalMin, totalMax)} (before delivery)`,
     '',
     '*MY DETAILS*',
-    `Name: ${name.trim() || '—'}`,
-    `Event date: ${eventDate ? formatDate(eventDate) : '—'}`,
-    `Delivery to: ${[city, state].filter(Boolean).join(', ') || '—'}`,
-    `Additional notes: ${notes.trim() || '—'}`,
+    `Name: ${name.trim()}`,
+    `Phone: ${phone.trim()}`,
+    `Event date: ${eventDate ? formatDate(eventDate) : 'not set yet'}`,
+    `Delivery to: ${city}, ${state}`,
+    `Additional notes: ${notes.trim() || 'none'}`,
     '',
     'Please confirm availability, final pricing and delivery. Thank you!',
-    '— sent from the Ufon Weddings website',
+    '(sent from the Ufon Weddings website)',
   ].join('\n');
 
   return (
@@ -86,7 +90,7 @@ export default function CartPage() {
         <h1>Your cart</h1>
         <p>
           Review your picks, add your details, and send everything to us on WhatsApp. We'll confirm
-          the specifics, final price and delivery in the chat — no payment is taken on this site.
+          the specifics, final price and delivery in the chat. No payment is taken on this site.
         </p>
       </div>
       <div className="cart-layout">
@@ -128,19 +132,23 @@ export default function CartPage() {
           </div>
 
           <div className="checkout-section" style={{ marginTop: 24 }}>
-            <h2>Your details <span className="optional-tag">all optional — but they help us reply faster</span></h2>
+            <h2>Your details <span className="optional-tag">so we know who we are talking to</span></h2>
             <div className="form-grid">
               <div className="form-field">
-                <label htmlFor="name">Your name</label>
-                <input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Adaeze Okon" />
+                <label htmlFor="name">Your name *</label>
+                <input id="name" required value={name} onChange={(e) => setName(e.target.value)} placeholder="Adaeze Okon" />
               </div>
               <div className="form-field">
-                <label htmlFor="eventDate">Wedding / event date</label>
+                <label htmlFor="phone">Phone / WhatsApp number *</label>
+                <input id="phone" required type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="0801 234 5678" />
+              </div>
+              <div className="form-field">
+                <label htmlFor="eventDate">Wedding / event date <span className="optional">(optional)</span></label>
                 <input id="eventDate" type="date" value={eventDate} onChange={(e) => setEventDate(e.target.value)} min={isoPlusDays(0)} />
               </div>
               <div className="form-field">
-                <label htmlFor="state">Delivery state</label>
-                <select id="state" value={state} onChange={(e) => { setState(e.target.value); setCity(''); }}>
+                <label htmlFor="state">Delivery state *</label>
+                <select id="state" required value={state} onChange={(e) => { setState(e.target.value); setCity(''); }}>
                   <option value="">Select state…</option>
                   {locations?.states.map((s) => (
                     <option key={s.state} value={s.state}>{s.state}</option>
@@ -148,8 +156,8 @@ export default function CartPage() {
                 </select>
               </div>
               <div className="form-field">
-                <label htmlFor="city">Delivery city</label>
-                <select id="city" value={city} onChange={(e) => setCity(e.target.value)} disabled={!state}>
+                <label htmlFor="city">Delivery city *</label>
+                <select id="city" required value={city} onChange={(e) => setCity(e.target.value)} disabled={!state}>
                   <option value="">{state ? 'Select city…' : 'Select a state first'}</option>
                   {stateInfo?.cities.map((c) => (
                     <option key={c.city} value={c.city}>{c.city}</option>
@@ -157,19 +165,19 @@ export default function CartPage() {
                 </select>
               </div>
               <div className="form-field full">
-                <label htmlFor="notes">Anything else?</label>
+                <label htmlFor="notes">Anything else? <span className="optional">(optional)</span></label>
                 <textarea id="notes" rows={3} value={notes} onChange={(e) => setNotes(e.target.value.slice(0, 500))} placeholder="Budget, colour theme, measurements, questions…" />
               </div>
             </div>
 
             {estimate?.status === 'comfortable' && (
-              <div className="banner banner-success"><span>✓</span><span>Estimated ready & delivered by <strong>{formatDate(estimate.eta)}</strong> — comfortably before your event.</span></div>
+              <div className="banner banner-success"><span>✓</span><span>Estimated ready & delivered by <strong>{formatDate(estimate.eta)}</strong> , comfortably before your event.</span></div>
             )}
             {estimate?.status === 'tight' && (
-              <div className="banner banner-warning"><span>⚠</span><span>Estimated ready & delivered by <strong>{formatDate(estimate.eta)}</strong> — close to your event date. Mention this in the chat so we can plan around it.</span></div>
+              <div className="banner banner-warning"><span>⚠</span><span>Estimated ready & delivered by <strong>{formatDate(estimate.eta)}</strong> , close to your event date. Mention this in the chat so we can plan around it.</span></div>
             )}
             {estimate?.status === 'late' && (
-              <div className="banner banner-danger"><span>✕</span><span>Estimated ready & delivered by <strong>{formatDate(estimate.eta)}</strong> — after your event date. Send the request anyway; we'll talk through rush options.</span></div>
+              <div className="banner banner-danger"><span>✕</span><span>Estimated ready & delivered by <strong>{formatDate(estimate.eta)}</strong> , after your event date. Send the request anyway; we'll talk through rush options.</span></div>
             )}
             {estimate && !estimate.status && (
               <div className="banner banner-info"><span>🪡</span><span>Estimated ready & delivered by <strong>{formatDate(estimate.eta)}</strong> for {city}, {state}.</span></div>
@@ -192,11 +200,22 @@ export default function CartPage() {
           <p className="field-hint">
             Ranges are indicative. Delivery is quoted separately. Your final price is agreed on WhatsApp.
           </p>
-          <a className="btn btn-whatsapp btn-block" href={whatsappLink(message)} target="_blank" rel="noreferrer">
-            <WhatsAppIcon size={20} /> Send order request on WhatsApp
-          </a>
+          {ready ? (
+            <a className="btn btn-whatsapp btn-block" href={whatsappLink(message)} target="_blank" rel="noreferrer">
+              <WhatsAppIcon size={20} /> Send order request on WhatsApp
+            </a>
+          ) : (
+            <button className="btn btn-whatsapp btn-block" disabled title="Fill in your name, phone and delivery location first">
+              <WhatsAppIcon size={20} /> Send order request on WhatsApp
+            </button>
+          )}
+          {!ready && (
+            <p className="field-hint" style={{ marginTop: 8, color: 'var(--danger)' }}>
+              Please add your name, phone number and delivery state/city so we know who to reply to.
+            </p>
+          )}
           <p className="field-hint" style={{ marginTop: 12 }}>
-            This opens WhatsApp with your order written out — just press send. We usually reply within
+            This opens WhatsApp with your order written out. Just press send. We usually reply within
             the day. Longest piece in this cart: ~{longestProductionDays} days to make.
           </p>
           <button className="link-btn" style={{ marginTop: 10 }} onClick={() => { if (confirm('Clear your cart?')) clear(); }}>

@@ -1,4 +1,4 @@
-// Business WhatsApp number — digits only, country code first (08023161031 → 234…).
+// Business WhatsApp number: digits only, country code first (08023161031 becomes 234...).
 export const WHATSAPP_NUMBER = '2348023161031';
 
 export function whatsappLink(message: string): string {
@@ -7,6 +7,5 @@ export function whatsappLink(message: string): string {
 
 export const BRAND = {
   name: 'Ufon Weddings',
-  origin: 'Akwa Ibom, Nigeria',
-  email: 'hello@ufonweddings.com', // TODO: real email
+  origin: 'Eket, Akwa Ibom, Nigeria',
 };

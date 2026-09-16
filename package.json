@@ -1,0 +1,10 @@
+{
+  "name": "ufon-weddings",
+  "private": true,
+  "description": "Ufon Weddings: one Node process serves the API and the built storefront",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "npm ci --prefix client && npm run build --prefix client && npm ci --prefix server && npm run build --prefix server",
+    "start": "node server/dist/main.js"
+  }
+}

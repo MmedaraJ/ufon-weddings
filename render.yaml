@@ -1,0 +1,13 @@
+# Render blueprint: New + > Blueprint > pick this repo, and Render creates the
+# service from this file. Starter plan avoids the free tier's cold starts.
+services:
+  - type: web
+    name: ufon-weddings
+    runtime: node
+    plan: starter
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /api/categories
+    envVars:
+      - key: NODE_VERSION
+        value: "22"

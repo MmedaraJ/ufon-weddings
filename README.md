@@ -36,6 +36,17 @@ The server serves the built storefront from `client/dist` when it exists, so one
 process hosts both the API and the site. `PORT` (default 4000) is the only
 environment variable.
 
+## Going live
+
+The repo is set up for Render (render.yaml at the root). In Render: New + >
+Blueprint > select this repository > Apply. Render builds with `npm run build`
+and starts `npm start`; the health check hits `/api/categories`. Any Node host
+works the same way (Railway, Fly.io): build with `npm run build`, start with
+`npm start`, port from `PORT`.
+
+To use a custom domain, add it under the service's Settings > Custom Domains
+and point the domain's DNS at the target Render shows; HTTPS is automatic.
+
 ## Adding products
 
 1. Put photos in `photos/<category-slug>/`:

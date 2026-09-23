@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { api } from '../api';
+import { api, asset } from '../api';
 import { cartKey, itemProductionDays, useCart } from '../cart';
 import { WhatsAppIcon } from '../components/WhatsAppButton';
 import { whatsappLink } from '../config';
@@ -101,7 +101,7 @@ export default function CartPage() {
               return (
                 <div key={key} className="cart-line">
                   <Link to={`/product/${item.slug}`}>
-                    <img src={item.image} alt={item.name} />
+                    <img src={asset(item.image)} alt={item.name} />
                   </Link>
                   <div>
                     <h3><Link to={`/product/${item.slug}`}>{item.name}</Link></h3>

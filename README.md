@@ -38,14 +38,19 @@ environment variable.
 
 ## Going live
 
-The repo is set up for Render (render.yaml at the root). In Render: New + >
-Blueprint > select this repository > Apply. Render builds with `npm run build`
-and starts `npm start`; the health check hits `/api/categories`. Any Node host
-works the same way (Railway, Fly.io): build with `npm run build`, start with
-`npm start`, port from `PORT`.
+The storefront is a static site: `server/src/export-static.ts` writes the catalog
+to `client/public/data/*.json` (git-ignored, generated at build time) and the
+client reads those files, so it can be hosted anywhere as plain files.
 
-To use a custom domain, add it under the service's Settings > Custom Domains
-and point the domain's DNS at the target Render shows; HTTPS is automatic.
+**GitHub Pages (current setup):** `.github/workflows/pages.yml` builds and
+publishes `client/dist` on every push to `main`. The site lives at
+https://mmedaraj.github.io/ufon-weddings/ (base path set with `VITE_BASE`).
+To use a custom domain later, add it under the repository's Settings > Pages,
+and change `VITE_BASE` in the workflow to `/`.
+
+**Any Node host (alternative):** `npm run build` then `npm start` runs the
+NestJS server, which serves the same `client/dist`; `render.yaml` is a
+ready-made Render blueprint.
 
 ## Adding products
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { asset } from '../api';
 
 // Simple image carousel with arrows and thumbnails. Works the same for real
 // photos and videos later: swap the <img> for a media component per slide.
@@ -9,7 +10,7 @@ export default function Carousel({ images, alt }: { images: string[]; alt: strin
   return (
     <div>
       <div className="carousel-main">
-        <img src={images[index]} alt={`${alt}, photo ${index + 1}`} />
+        <img src={asset(images[index])} alt={`${alt}, photo ${index + 1}`} />
         {images.length > 1 && (
           <>
             <button className="carousel-nav carousel-prev" onClick={() => go(-1)} aria-label="Previous image">
@@ -25,7 +26,7 @@ export default function Carousel({ images, alt }: { images: string[]; alt: strin
         <div className="carousel-thumbs">
           {images.map((src, i) => (
             <button key={src + i} className={i === index ? 'active' : ''} onClick={() => setIndex(i)}>
-              <img src={src} alt="" />
+              <img src={asset(src)} alt="" />
             </button>
           ))}
         </div>

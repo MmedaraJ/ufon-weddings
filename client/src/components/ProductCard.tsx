@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import { asset } from '../api';
 import { nairaRange } from '../money';
 import { Product } from '../types';
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link to={`/product/${product.slug}`} className="card">
-      <img className="card-img-tall" src={product.images[0]} alt={product.name} loading="lazy" />
+      <img className="card-img-tall" src={asset(product.images[0])} alt={product.name} loading="lazy" />
       <div className="card-body">
         <h3>{product.name}</h3>
         <div className="card-price">{nairaRange(product.priceMin, product.priceMax)}</div>

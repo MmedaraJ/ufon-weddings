@@ -5,7 +5,7 @@ import { Product } from '../common/types';
 
 // Personalization stays server-side truth: the storefront only ever sees
 // `enabled` configs, so hidden (no-machine-yet) options never leak to the UI.
-function publicProduct(product: Product): Product {
+export function publicProduct(product: Product): Product {
   if (product.personalization && !product.personalization.enabled) {
     const { personalization, ...rest } = product;
     return rest;

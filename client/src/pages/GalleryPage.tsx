@@ -1,3 +1,4 @@
+import { asset } from '../api';
 import { whatsappLink } from '../config';
 
 // Reserved for photos of real customers wearing and using our pieces. Add
@@ -28,7 +29,7 @@ export default function GalleryPage() {
           <div className="grid grid-gallery">
             {SHOTS.map((s) => (
               <figure key={s.src} className="card" style={{ margin: 0 }}>
-                <img className="card-img-tall" src={s.src} alt={s.caption} loading="lazy" />
+                <img className="card-img-tall" src={asset(s.src)} alt={s.caption} loading="lazy" />
                 <figcaption className="card-body card-tagline">{s.caption}</figcaption>
               </figure>
             ))}

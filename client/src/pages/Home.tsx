@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { api } from '../api';
+import { api, asset } from '../api';
 import ProductCard from '../components/ProductCard';
 import { whatsappLink } from '../config';
 import { Category, Product } from '../types';
@@ -48,7 +48,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-image">
-            <img src="/images/hero.jpg" alt="A bride in a handmade Ufon Weddings gown" />
+            <img src={asset('/images/hero.jpg')} alt="A bride in a handmade Ufon Weddings gown" />
           </div>
         </div>
       </section>
@@ -90,7 +90,7 @@ export default function Home() {
           <div className="grid grid-cats">
             {categories.map((c) => (
               <Link key={c.slug} to={`/category/${c.slug}`} className="card">
-                <img className="card-img" src={c.image} alt={c.name} loading="lazy" />
+                <img className="card-img" src={asset(c.image)} alt={c.name} loading="lazy" />
                 <div className="card-body">
                   <h3>{c.name}</h3>
                   <p className="card-tagline">{c.tagline}</p>

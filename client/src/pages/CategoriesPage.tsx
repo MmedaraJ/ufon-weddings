@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { api } from '../api';
+import { api, asset } from '../api';
 import { Category } from '../types';
 
 export default function CategoriesPage() {
@@ -21,7 +21,7 @@ export default function CategoriesPage() {
         <div className="grid grid-cats">
           {categories.map((c) => (
             <Link key={c.slug} to={`/category/${c.slug}`} className="card">
-              <img className="card-img" src={c.image} alt={c.name} loading="lazy" />
+              <img className="card-img" src={asset(c.image)} alt={c.name} loading="lazy" />
               <div className="card-body">
                 <h3>{c.name}</h3>
                 <p className="card-tagline">{c.tagline}</p>

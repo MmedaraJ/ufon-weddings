@@ -5,3 +5,4 @@ dist/
 .DS_Store
 *.tsbuildinfo
 raw-photos/
+client/public/data/

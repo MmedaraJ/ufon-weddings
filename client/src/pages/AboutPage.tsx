@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { asset } from '../api';
 import { whatsappLink } from '../config';
 
 export default function AboutPage() {
@@ -9,7 +10,7 @@ export default function AboutPage() {
         <h1>Handcrafted in Akwa Ibom, with love</h1>
       </div>
       <div className="about-layout">
-        <img src="/images/about-portrait.svg" alt="The founder of Ufon Weddings" />
+        <img src={asset('/images/about-portrait.svg')} alt="The founder of Ufon Weddings" />
         <div className="about-copy">
           {/* TODO: replace with the founder's real story and photo */}
           <p>
